@@ -1,11 +1,11 @@
 "use client"
-import { useLanguage } from '../contexts/LanguageContext';
+import {  } from '../contexts/LanguageContext';
 
 const LanguageSwitcher = () => {
-    const { language, setLanguage } = useLanguage();
+    
 
     return (
-        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+        <select value={language} >
             <option value="en">English</option>
             <option value="fr">French</option>
             <option value="es">Spanish</option>
