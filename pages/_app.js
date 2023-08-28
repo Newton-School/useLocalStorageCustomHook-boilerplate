@@ -1,13 +1,12 @@
-"use client"
-import { LanguageProvider } from '../contexts/LanguageContext';
-import '../styles/globals.css'; // Or your CSS file if different
+// App.js
+import React from 'react';
 
-function MyApp({ Component, pageProps }) {
-    return (
-        <LanguageProvider>
-            <Component {...pageProps} />
-        </LanguageProvider>
-    );
+import MyComponent from '../components/MyComponent';
+
+function App() {
+  return (
+            <MyComponent />
+  );
 }
 
-export default MyApp;
+export default App;
