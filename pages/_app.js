@@ -1,12 +1,10 @@
-// App.js
-import React from 'react';
+"use client"
+// import "@/styles/globals.css";
 
-import MyComponent from '../components/MyComponent';
-
-function App() {
+export default function App({ Component, pageProps }) {
   return (
-            <MyComponent />
-  );
-}
 
-export default App;
+        <Component {...pageProps} />
+
+);
+}
