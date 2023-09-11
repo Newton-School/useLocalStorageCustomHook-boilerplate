@@ -1,20 +1,37 @@
-import { useState } from 'react';
-import Modal from '../components/Modal';
+import React, { useReducer, useEffect, useState } from "react";
 
-const HomePage = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
+const initialState = { hotels: [], filteredHotels: [] };
+
+function reducer(state, action) {
+  switch (action) {
+    case "FETCH_SUCCESS":
+     
+    case "FILTER":
+     
+    default:
+   
+  }
+}
+export default function Home() {
+   const [state, dispatch] = useReducer(reducer, initialState);
+ 
+
+
+
+  useEffect(() => {
+    dispatch({ type: "FILTER"});
+  });
 
   return (
-    <div>
-      <button onClick={() => setModalOpen(true)}>Open Modal</button>
-
-      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <h2>This is a Modal</h2>
-        <p>Using React Portals with Next.js</p>
-        <button onClick={() => setModalOpen(false)}>Close Modal</button>
-      </Modal>
+    <div className="App">
+      <input
+        type="text"
+        placeholder="Enter city name"
+      />
+     
+        <p >hotel_name</p>
+     
     </div>
   );
-};
-
-export default HomePage;
+  }
+  
