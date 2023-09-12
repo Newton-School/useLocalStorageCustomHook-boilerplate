@@ -1,37 +1,32 @@
-import React, { useReducer, useEffect, useState } from "react";
 
-const initialState = { hotels: [], filteredHotels: [] };
+import React from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
-function reducer(state, action) {
-  switch (action) {
-    case "FETCH_SUCCESS":
-     
-    case "FILTER":
-     
-    default:
-   
-  }
-}
-export default function Home() {
-   const [state, dispatch] = useReducer(reducer, initialState);
- 
-
-
-
-  useEffect(() => {
-    dispatch({ type: "FILTER"});
-  });
-
-  return (
-    <div className="App">
-      <input
-        type="text"
-        placeholder="Enter city name"
-      />
-     
-        <p >hotel_name</p>
-     
-    </div>
-  );
-  }
+function Home() {
   
+  //ignore below code as it is used to counter problems in SSR vs CSR
+  const [hydrated, setHydrated] = React.useState(false);
+  
+  const [name, setName] = useLocalStorage('name', '');
+  React.useEffect(() => {
+    setHydrated(true);
+  }, []);
+  if (!hydrated) {
+    // Returns null on first render, so the client and server match
+    return null;
+  }
+  // ignore code till here.
+  
+    return (
+        <div>
+            <h1>Hello, {name}!</h1>
+            <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+            />
+        </div>
+    );
+}
+
+export default Home;
